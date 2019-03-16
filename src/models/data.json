@@ -1,0 +1,152 @@
+{
+    "matchId":1,
+    "homeTeam":{
+        "name": "Pilots",
+        "colour": "Gold"
+    },
+    "awayTeam":{
+        "name": "No Prescense",
+        "colour": "Grey"
+    },
+    "date": "13/03/2019",
+    "status": "complete",
+    "matchStats": {
+        "homeTeamScore":24,
+        "awayTeamScore":51,
+        "homeTeamStats":[
+        {
+            "player":{
+                "number":4,
+                "name":"Alvin Soh"
+            },
+            "fieldGoalsAttempted":8,
+            "fieldGoalsMade":2,
+            "threePointsAttemped":6,
+            "threePointsMade":2,
+            "freeThrowsAttempted":0,
+            "freeThrowsMade":0,
+            "foulsDrawn":0,
+            "foulsGiven":1,
+            "rebounds":5,
+            "steals":2,
+            "assists":1,
+            "turnover":1,
+            "blocks":0
+        },
+        {
+            "player":{
+                "number":2,
+                "name":"Roy Aranda"
+            },
+            "fieldGoalsAttempted":8,
+            "fieldGoalsMade":3,
+            "threePointsAttemped":3,
+            "threePointsMade":0,
+            "freeThrowsAttempted":0,
+            "freeThrowsMade":0,
+            "foulsDrawn":2,
+            "foulsGiven":2,
+            "rebounds":1,
+            "steals":1,
+            "assists":2,
+            "turnover":4,
+            "blocks":0
+        },
+        {
+            "player":{
+                "number":21,
+                "name":"Hussein Debel"
+            },
+            "fieldGoalsAttempted":2,
+            "fieldGoalsMade":0,
+            "threePointsAttemped":0,
+            "threePointsMade":0,
+            "freeThrowsAttempted":0,
+            "freeThrowsMade":0,
+            "foulsDrawn":0,
+            "foulsGiven":1,
+            "rebounds":1,
+            "steals":2,
+            "assists":0,
+            "turnover":1,
+            "blocks":1
+        },
+        {
+            "player":{
+                "number":88,
+                "name":"Tavangona Nyoka"
+            },
+            "fieldGoalsAttempted":2,
+            "fieldGoalsMade":1,
+            "threePointsAttemped":2,
+            "threePointsMade":0,
+            "freeThrowsAttempted":0,
+            "freeThrowsMade":0,
+            "foulsDrawn":0,
+            "foulsGiven":2,
+            "rebounds":5,
+            "steals":1,
+            "assists":1,
+            "turnover":3,
+            "blocks":1
+        },
+        {
+            "player":{
+                "number":3,
+                "name":"Khatami Chau"
+            },
+            "fieldGoalsAttempted":5,
+            "fieldGoalsMade":0,
+            "threePointsAttemped":7,
+            "threePointsMade":1,
+            "freeThrowsAttempted":0,
+            "freeThrowsMade":0,
+            "foulsDrawn":0,
+            "foulsGiven":6,
+            "rebounds":8,
+            "steals":0,
+            "assists":2,
+            "turnover":0,
+            "blocks":0
+        },
+        {
+            "player":{
+                "number":74,
+                "name":"Usman Haidar"
+            },
+            "fieldGoalsAttempted":5,
+            "fieldGoalsMade":0,
+            "threePointsAttemped":1,
+            "threePointsMade":0,
+            "freeThrowsAttempted":0,
+            "freeThrowsMade":0,
+            "foulsDrawn":0,
+            "foulsGiven":1,
+            "rebounds":2,
+            "steals":1,
+            "assists":0,
+            "turnover":0,
+            "blocks":0
+        },
+        {
+            "player":{
+                "number":19,
+                "name":"Jeremy Soh"
+            },
+            "fieldGoalsAttempted":5,
+            "fieldGoalsMade":1,
+            "threePointsAttemped":0,
+            "threePointsMade":0,
+            "freeThrowsAttempted":2,
+            "freeThrowsMade":1,
+            "foulsDrawn":1,
+            "foulsGiven":0,
+            "rebounds":2,
+            "steals":2,
+            "assists":0,
+            "turnover":3,
+            "blocks":0
+        }
+        ]
+    }
+ }
