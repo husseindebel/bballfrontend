@@ -1,6 +1,7 @@
 import React from 'react';
 import { Match } from '../models/BBallModels';
 import { BBallMatchCard } from './BBallMatchCard';
+import './BBall.css';
 
 interface Props {
   seasonMatches: Match[]
@@ -8,7 +9,7 @@ interface Props {
 
 export function BBallMatchPanel({ seasonMatches }: Props) {
   return (
-    <div>
+    <div className="match-panel">
       {
         seasonMatches.map((match) => {
           return (

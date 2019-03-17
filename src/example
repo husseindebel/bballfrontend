@@ -1,0 +1,55 @@
+import React from 'react';
+import { Match, CompleteMatchStats } from '../models/BBallModels';
+
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import { Theme, createStyles, withStyles, Button, WithStyles, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { blue } from '@material-ui/core/colors';
+
+const styles = (theme: Theme) => createStyles({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    padding: theme.spacing.unit,
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.secondary.light,
+  },
+});
+
+interface Props extends WithStyles<typeof styles> {
+  foo: number;
+  bar: boolean;
+}
+
+const theme = createMuiTheme({
+  typography: {
+    // Tell Material-UI what the font-size on the html element is.
+    htmlFontSize: 10,
+    useNextVariants: true,
+  },
+  palette: {
+    primary: {
+      // light: will be calculated from palette.primary.main,
+      main: '#ff4400',
+      // dark: will be calculated from palette.primary.main,
+      // contrastText: will be calculated to contrast with palette.primary.main
+    },
+    secondary: {
+      light: '#0066ff',
+      main: '#0044ff',
+      // dark: will be calculated from palette.secondary.main,
+      contrastText: '#ffcc00',
+    },
+    // error: will use the default color
+  },
+});
+
+
+export const BBallMatchCard = withStyles(styles)(({ foo, bar, classes }: Props) => (
+  <MuiThemeProvider theme={theme}>
+  <Paper classes={classes}>
+    {foo}
+  </Paper>
+  </MuiThemeProvider>
+));
+// export default withStyles(styles)(BBallMatchCard);

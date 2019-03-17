@@ -28,6 +28,7 @@ export interface CompleteMatchStats {
     homeTeamScore: number;
     awayTeamScore: number;
     homeTeamStats: PlayerStats[];
+    matchStatus: MatchState.Complete;
 }
 
 export interface PlayerStats {

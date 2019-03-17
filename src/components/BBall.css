@@ -1,0 +1,7 @@
+.match-panel {
+    /* border-width: 50px; */
+    margin: 50px;
+    width: 50%;
+    left: 20%;
+    position: absolute;
+}

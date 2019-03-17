@@ -21,7 +21,7 @@
             },
             "fieldGoalsAttempted":8,
             "fieldGoalsMade":2,
-            "threePointsAttemped":6,
+            "threePointsAttempted":6,
             "threePointsMade":2,
             "freeThrowsAttempted":0,
             "freeThrowsMade":0,
@@ -30,7 +30,7 @@
             "rebounds":5,
             "steals":2,
             "assists":1,
-            "turnover":1,
+            "turnovers":1,
             "blocks":0
         },
         {
@@ -40,7 +40,7 @@
             },
             "fieldGoalsAttempted":8,
             "fieldGoalsMade":3,
-            "threePointsAttemped":3,
+            "threePointsAttempted":3,
             "threePointsMade":0,
             "freeThrowsAttempted":0,
             "freeThrowsMade":0,
@@ -49,7 +49,7 @@
             "rebounds":1,
             "steals":1,
             "assists":2,
-            "turnover":4,
+            "turnovers":4,
             "blocks":0
         },
         {
@@ -59,7 +59,7 @@
             },
             "fieldGoalsAttempted":2,
             "fieldGoalsMade":0,
-            "threePointsAttemped":0,
+            "threePointsAttempted":0,
             "threePointsMade":0,
             "freeThrowsAttempted":0,
             "freeThrowsMade":0,
@@ -68,7 +68,7 @@
             "rebounds":1,
             "steals":2,
             "assists":0,
-            "turnover":1,
+            "turnovers":1,
             "blocks":1
         },
         {
@@ -78,7 +78,7 @@
             },
             "fieldGoalsAttempted":2,
             "fieldGoalsMade":1,
-            "threePointsAttemped":2,
+            "threePointsAttempted":2,
             "threePointsMade":0,
             "freeThrowsAttempted":0,
             "freeThrowsMade":0,
@@ -87,7 +87,7 @@
             "rebounds":5,
             "steals":1,
             "assists":1,
-            "turnover":3,
+            "turnovers":3,
             "blocks":1
         },
         {
@@ -97,7 +97,7 @@
             },
             "fieldGoalsAttempted":5,
             "fieldGoalsMade":0,
-            "threePointsAttemped":7,
+            "threePointsAttempted":7,
             "threePointsMade":1,
             "freeThrowsAttempted":0,
             "freeThrowsMade":0,
@@ -106,7 +106,7 @@
             "rebounds":8,
             "steals":0,
             "assists":2,
-            "turnover":0,
+            "turnovers":0,
             "blocks":0
         },
         {
@@ -116,7 +116,7 @@
             },
             "fieldGoalsAttempted":5,
             "fieldGoalsMade":0,
-            "threePointsAttemped":1,
+            "threePointsAttempted":1,
             "threePointsMade":0,
             "freeThrowsAttempted":0,
             "freeThrowsMade":0,
@@ -125,7 +125,7 @@
             "rebounds":2,
             "steals":1,
             "assists":0,
-            "turnover":0,
+            "turnovers":0,
             "blocks":0
         },
         {
@@ -135,7 +135,7 @@
             },
             "fieldGoalsAttempted":5,
             "fieldGoalsMade":1,
-            "threePointsAttemped":0,
+            "threePointsAttempted":0,
             "threePointsMade":0,
             "freeThrowsAttempted":2,
             "freeThrowsMade":1,
@@ -144,7 +144,7 @@
             "rebounds":2,
             "steals":2,
             "assists":0,
-            "turnover":3,
+            "turnovers":3,
             "blocks":0
         }
         ]
