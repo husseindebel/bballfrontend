@@ -71,17 +71,17 @@ export const BBallMatchStats = withStyles(styles)(({ matchStats, classes }: Prop
                 <TableCell padding='checkbox' align='center'>{n.fieldGoalsAttempted}</TableCell>
                 <TableCell padding='checkbox' align='center'>{
                   isNaN(n.fieldGoalsMade/n.fieldGoalsAttempted) ? 0 : 
-                  (n.fieldGoalsMade/n.fieldGoalsAttempted).toFixed(2)}</TableCell>
+                  ((n.fieldGoalsMade/n.fieldGoalsAttempted)*100).toFixed(2)}</TableCell>
                 <TableCell padding='checkbox' align='center'>{n.threePointsMade}</TableCell>
                 <TableCell padding='checkbox' align='center'>{n.threePointsAttempted}</TableCell>
                 <TableCell padding='checkbox' align='center'>{
                   isNaN(n.threePointsMade/n.threePointsAttempted) ? 0 : 
-                  (n.threePointsMade/n.threePointsAttempted).toFixed(2)}</TableCell>
+                  ((n.threePointsMade/n.threePointsAttempted)*100).toFixed(2)}</TableCell>
                 <TableCell padding='checkbox' align='center'>{n.freeThrowsMade}</TableCell>
                 <TableCell padding='checkbox' align='center'>{n.freeThrowsAttempted}</TableCell>
                 <TableCell padding='checkbox' align='center'>{
                   isNaN(n.freeThrowsMade/n.freeThrowsAttempted) ? 0 : 
-                  (n.freeThrowsMade/n.freeThrowsAttempted).toFixed(2)}</TableCell>
+                  ((n.freeThrowsMade/n.freeThrowsAttempted)*100).toFixed(2)}</TableCell>
                 <TableCell padding='checkbox' align='center'>{n.turnovers}</TableCell>
                 <TableCell padding='checkbox' align='center'>{n.foulsGiven}</TableCell>
               </TableRow>
