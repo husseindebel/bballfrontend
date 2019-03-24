@@ -62,7 +62,7 @@ export const BBallMatchStats = withStyles(styles)(({ matchStats, classes }: Prop
                 <TableCell padding='checkbox' component="th" scope="row">
                   {n.player.number}   {n.player.name}
                 </TableCell>
-                <TableCell padding='checkbox' align='center'>{n.threePointsMade*3 + (n.fieldGoalsMade - n.threePointsMade)*2}</TableCell>
+                <TableCell padding='checkbox' align='center'>{n.threePointsMade*3 + (n.fieldGoalsMade - n.threePointsMade)*2 +  n.freeThrowsMade}</TableCell>
                 <TableCell padding='checkbox' align='center'>{n.rebounds}</TableCell>
                 <TableCell padding='checkbox' align='center'>{n.assists}</TableCell>
                 <TableCell padding='checkbox' align='center'>{n.steals}</TableCell>

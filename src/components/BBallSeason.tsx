@@ -7,11 +7,13 @@ import { BBallMatchPanel } from './BBallMatchPanel';
 
 function BBallSeason() {
 
-  const [matches, setMatches] = React.useState([parseBBallData(bballData)] as Match[]); 
+  const [matches, setMatches] = React.useState(parseBBallData(bballData)); 
 
-  function parseBBallData(data: any): Match {
-    const match: Match = data.default;
-    match.status === "complete" ? match.matchStats.matchStatus = MatchState.Complete : match.matchStats.matchStatus = MatchState.Incomplete;    
+  function parseBBallData(data: any): Match[] {
+    const matches: Match[] = data.default;
+    matches.map(match => {
+      match.status === "complete" ? match.matchStats.matchStatus = MatchState.Complete : match.matchStats.matchStatus = MatchState.Incomplete;    
+    })
     return data.default;
   }
 

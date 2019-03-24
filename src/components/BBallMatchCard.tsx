@@ -13,16 +13,17 @@ const styles = (theme: Theme) => createStyles({
     display: 'flex',
     flexDirection: 'column',
     padding: theme.spacing.unit * 2,
+    margin: '50px'
   },
   matchCardRight: {
     textAlign: 'right',
-    backgroundColor: 'grey',
+    backgroundColor: theme.palette.secondary.main,
   },
   matchCardMiddle: {
     textAlign: 'center',
   },
   matchCardLeft: {
-    backgroundColor: 'gold',
+    backgroundColor: theme.palette.primary.main,
   },
   matchContainer: {
     margin: '-16px',
@@ -52,12 +53,13 @@ interface Props extends WithStyles<typeof styles> {
   matchData: Match;
 }
 
-
 export const BBallMatchCard = withStyles(styles)(({ matchData, classes }: Props) => {
+
   const [isExpanded, changeCardState] = React.useState(false);
   const matchStats = matchData.matchStats;
-
   return (
+    <>
+    <div>{matchData.matchNumber} {matchData.date}</div>
     <Card className={classes.root}>
       <Grid className={classes.matchContainer} container spacing={24}>
         <Grid className={classes.matchCardLeft} item xs={4}>
@@ -85,7 +87,7 @@ export const BBallMatchCard = withStyles(styles)(({ matchData, classes }: Props)
         </Grid>
         <Grid className={classes.matchCardRight} item xs={4}>
           <Typography className={classes.matchText}>
-            No Presence
+            {matchData.awayTeam.name}
          </Typography>
         </Grid>
       </Grid>
@@ -98,6 +100,7 @@ export const BBallMatchCard = withStyles(styles)(({ matchData, classes }: Props)
         }
       </Collapse>
     </Card>
+    </>
   )
 });
 // export default withStyles(styles)(BBallMatchCard);
