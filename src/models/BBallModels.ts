@@ -16,6 +16,7 @@ export interface Match {
     awayTeam: Team;
     date: string;
     status: string;
+    matchNumber: string;
     matchStats: MatchStats;
 }
 

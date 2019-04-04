@@ -9,7 +9,7 @@ interface Props {
 }
 
 export function BBallMatchPanel({ seasonMatches }: Props) {
-  seasonMatches.sort((a, b) => b.date.localeCompare(a.date)); // mutating state
+  seasonMatches.reverse(); // mutating state
   return (
     <div className="match-panel">
       {
