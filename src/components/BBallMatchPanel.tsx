@@ -11,13 +11,13 @@ interface Props {
 
 export function BBallMatchPanel({ seasonMatches }: Props) {
   seasonMatches.reverse(); // mutating state
-  console.log(getTotalAveragePlayerStats(seasonMatches, "Roy Aranda"));
-  console.log(getTotalAveragePlayerStats(seasonMatches, "Alvin Soh"));
-  console.log(getTotalAveragePlayerStats(seasonMatches, "Jeremy Soh"));
-  console.log(getTotalAveragePlayerStats(seasonMatches, "Hussein Debel"));
-  console.log(getTotalAveragePlayerStats(seasonMatches, "Usman Haidar"));
-  console.log(getTotalAveragePlayerStats(seasonMatches, "Khatami Chau"));
-  console.log(getTotalAveragePlayerStats(seasonMatches, "Tavonga Nyoka"));
+  console.log(getTotalAveragePlayerStats("Roy Aranda"));
+  console.log(getTotalAveragePlayerStats("Alvin Soh"));
+  console.log(getTotalAveragePlayerStats("Jeremy Soh"));
+  console.log(getTotalAveragePlayerStats("Hussein Debel"));
+  console.log(getTotalAveragePlayerStats("Usman Haidar"));
+  console.log(getTotalAveragePlayerStats("Khatami Chau"));
+  console.log(getTotalAveragePlayerStats("Tavonga Nyoka"));
 
   return (
     <div className="match-panel">

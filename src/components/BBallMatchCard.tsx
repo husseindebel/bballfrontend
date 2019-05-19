@@ -56,7 +56,11 @@ interface Props extends WithStyles<typeof styles> {
 
 export const BBallMatchCard = withStyles(styles)(({ matchData, classes }: Props) => {
 
-  const [isExpanded, changeCardState] = React.useState(false);
+  const initState = {
+    expanded: false,
+  }
+
+  const [cardState, changeCardState] = React.useState(initState);
   const matchStats = matchData.matchStats;
 
   return (
@@ -78,10 +82,10 @@ export const BBallMatchCard = withStyles(styles)(({ matchData, classes }: Props)
           }
           <IconButton
             className={classnames(classes.arrowIcon, classes.expand, {
-              [classes.expandOpen]: isExpanded,
+              [classes.expandOpen]: cardState.expanded,
             })}
-            onClick={() => changeCardState(!isExpanded)}
-            aria-expanded={isExpanded}
+            onClick={() => changeCardState({...cardState, expanded: !cardState.expanded})}
+            aria-expanded={cardState.expanded}
             aria-label="Show more"
           >
             <ExpandMoreIcon className={classes.arrowIcon} />
@@ -93,7 +97,7 @@ export const BBallMatchCard = withStyles(styles)(({ matchData, classes }: Props)
          </Typography>
         </Grid>
       </Grid>
-      <Collapse in={isExpanded} timeout="auto" unmountOnExit>
+      <Collapse in={cardState.expanded} timeout="auto" unmountOnExit>
         {matchStats.matchStatus === MatchState.Incomplete &&
           <div>Data Not Available</div>
         }

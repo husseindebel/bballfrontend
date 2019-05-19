@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardContent, Typography, Theme, WithStyles, createStyles, withStyles, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
+import { CardContent, Typography, Theme, WithStyles, createStyles, withStyles, Table, TableHead, TableRow, TableCell, TableBody, Button } from '@material-ui/core';
 import { Match, CompleteMatchStats } from '../models/BBallModels';
 import { getTotalAveragePlayerStats } from '../services/BBallDataRetriever';
 
@@ -60,7 +60,7 @@ export const BBallMatchStats = withStyles(styles)(({ matchStats, classes }: Prop
             return (
               <TableRow key={n.player.number}>
                 <TableCell padding='checkbox' component="th" scope="row">
-                  {n.player.number}   {n.player.name}
+                <Button size="small"> {n.player.number}  {n.player.name}</Button>
                 </TableCell>
                 <TableCell padding='checkbox' align='center'>{n.threePointsMade*3 + (n.fieldGoalsMade - n.threePointsMade)*2 +  n.freeThrowsMade}</TableCell>
                 <TableCell padding='checkbox' align='center'>{n.rebounds}</TableCell>

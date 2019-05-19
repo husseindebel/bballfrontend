@@ -1,5 +1,5 @@
 import { Match, MatchState, PlayerStats, CompleteMatchStats, AveragePlayerStats, MatchStats } from "../models/BBallModels";
-
+import * as bballData from '../models/data.json';
 
 
 export function parseBBallData(data: any): Match[] {
@@ -38,7 +38,8 @@ const getTotalPlayerStats = (matchData: MatchStats[], playerName: string): Playe
     return {...playerData, totalPoints: playerData.threePointsMade*3 + (playerData.fieldGoalsMade - playerData.threePointsMade)*2 +  playerData.freeThrowsMade};
 }
 
-export const getTotalAveragePlayerStats = (matchData: Match[], playerName: string): AveragePlayerStats => {
+export const getTotalAveragePlayerStats = (playerName: string): AveragePlayerStats => {
+    const matchData = parseBBallData(bballData);
     var completeMatches: MatchStats[] = matchData.map(match => match.matchStats).filter(match => match.matchStatus === MatchState.Complete);
 
     var totalStats: PlayerStats = getTotalPlayerStats(completeMatches, playerName);
