@@ -1,7 +1,8 @@
 import React from 'react';
 import { CardContent, Typography, Theme, WithStyles, createStyles, withStyles, Table, TableHead, TableRow, TableCell, TableBody, Button } from '@material-ui/core';
-import { Match, CompleteMatchStats } from '../models/BBallModels';
+import { Match, CompleteMatchStats, Player } from '../models/BBallModels';
 import { getTotalAveragePlayerStats } from '../services/BBallDataRetriever';
+import { ModalState } from './BBallMatchCard';
 
 const styles = (theme: Theme) => createStyles({
 
@@ -9,6 +10,7 @@ const styles = (theme: Theme) => createStyles({
 
 interface Props extends WithStyles<typeof styles> {
   matchStats: CompleteMatchStats;
+  handleModalAction: (modalState: ModalState, player: Player) => void;
 }
 
 /*
@@ -29,7 +31,8 @@ interface Props extends WithStyles<typeof styles> {
   TOV
 */
 
-export const BBallMatchStats = withStyles(styles)(({ matchStats, classes }: Props) => {
+export const BBallMatchStats = withStyles(styles)(({ matchStats, handleModalAction, classes }: Props) => {
+  
   return (
     <CardContent>
       <Table>
@@ -60,7 +63,7 @@ export const BBallMatchStats = withStyles(styles)(({ matchStats, classes }: Prop
             return (
               <TableRow key={n.player.number}>
                 <TableCell padding='checkbox' component="th" scope="row">
-                <Button size="small"> {n.player.number}  {n.player.name}</Button>
+                <Button size="small" onClick={() => handleModalAction(ModalState.Open, n.player)}> {n.player.number}  {n.player.name}</Button>
                 </TableCell>
                 <TableCell padding='checkbox' align='center'>{n.threePointsMade*3 + (n.fieldGoalsMade - n.threePointsMade)*2 +  n.freeThrowsMade}</TableCell>
                 <TableCell padding='checkbox' align='center'>{n.rebounds}</TableCell>

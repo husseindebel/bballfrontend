@@ -57,5 +57,6 @@ export const getTotalAveragePlayerStats = (playerName: string): AveragePlayerSta
         fieldGoalsMade: totalStats.fieldGoalsMade,
         threePointsAttempted: totalStats.threePointsAttempted,
         threePointsMade: totalStats.threePointsMade,
+        turnoversPerGame: totalStats.turnovers / matchData.length
     }
 }

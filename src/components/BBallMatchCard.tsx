@@ -1,13 +1,14 @@
 import React from 'react';
-import { Match, CompleteMatchStats, MatchState } from '../models/BBallModels';
+import { Match, CompleteMatchStats, MatchState, Player } from '../models/BBallModels';
 
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import { Theme, createStyles, withStyles, Button, WithStyles, createMuiTheme, MuiThemeProvider, Card, Grid, IconButton, Collapse, CardContent } from '@material-ui/core';
+import { Theme, createStyles, withStyles, Button, WithStyles, createMuiTheme, MuiThemeProvider, Card, Grid, IconButton, Collapse, CardContent, Modal } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import classnames from 'classnames';
 import { BBallMatchStats } from './BBallMatchStats';
 import { getTotalAveragePlayerStats } from '../services/BBallDataRetriever';
+import { PlayerStatsModal } from './PlayerStatsModal';
 
 const styles = (theme: Theme) => createStyles({
   root: {
@@ -54,14 +55,37 @@ interface Props extends WithStyles<typeof styles> {
   matchData: Match;
 }
 
+interface State {
+  expanded: boolean;
+  modalOpen: ModalState;
+  currentPlayer: Player | undefined;
+}
+
+export enum ModalState {
+  Open, Close
+}
+
 export const BBallMatchCard = withStyles(styles)(({ matchData, classes }: Props) => {
 
-  const initState = {
+  const initState: State = {
     expanded: false,
+    modalOpen: ModalState.Close,
+    currentPlayer: undefined,
   }
 
   const [cardState, changeCardState] = React.useState(initState);
   const matchStats = matchData.matchStats;
+
+  const handleExpandCard = () => changeCardState({
+    ...cardState,
+    expanded: !cardState.expanded
+  });
+
+  const handleModalAction = (modalState: ModalState, player: Player | undefined) => changeCardState({
+    ...cardState,
+    modalOpen: modalState,
+    currentPlayer: player,
+  });
 
   return (
     <>
@@ -84,7 +108,7 @@ export const BBallMatchCard = withStyles(styles)(({ matchData, classes }: Props)
             className={classnames(classes.arrowIcon, classes.expand, {
               [classes.expandOpen]: cardState.expanded,
             })}
-            onClick={() => changeCardState({...cardState, expanded: !cardState.expanded})}
+            onClick={() => handleExpandCard()}
             aria-expanded={cardState.expanded}
             aria-label="Show more"
           >
@@ -102,10 +126,11 @@ export const BBallMatchCard = withStyles(styles)(({ matchData, classes }: Props)
           <div>Data Not Available</div>
         }
         {matchStats.matchStatus === MatchState.Complete &&
-          <BBallMatchStats matchStats={matchStats}/>
+          <BBallMatchStats matchStats={matchStats} handleModalAction={handleModalAction}/>
         }
       </Collapse>
     </Card>
+    {cardState.modalOpen == ModalState.Open && cardState.currentPlayer && <PlayerStatsModal player={cardState.currentPlayer} handleModalAction={handleModalAction}/>}
     </>
   )
 });

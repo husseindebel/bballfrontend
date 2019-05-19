@@ -1,5 +1,5 @@
 export interface Player {
-    name: String;
+    name: string;
     number: number;
     team: Team;
 }
@@ -64,6 +64,7 @@ export interface AveragePlayerStats {
     fieldGoalPercentage: number;
     threePointPercentage: number;
     freePointPercentage: number;
+    turnoversPerGame: number;
 }
 
 export interface IncompleteMatch {
