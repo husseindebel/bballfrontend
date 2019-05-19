@@ -7,6 +7,7 @@ import { Theme, createStyles, withStyles, Button, WithStyles, createMuiTheme, Mu
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import classnames from 'classnames';
 import { BBallMatchStats } from './BBallMatchStats';
+import { getTotalAveragePlayerStats } from '../services/BBallDataRetriever';
 
 const styles = (theme: Theme) => createStyles({
   root: {
@@ -57,6 +58,7 @@ export const BBallMatchCard = withStyles(styles)(({ matchData, classes }: Props)
 
   const [isExpanded, changeCardState] = React.useState(false);
   const matchStats = matchData.matchStats;
+
   return (
     <>
     <div>{matchData.matchNumber} {matchData.date}</div>

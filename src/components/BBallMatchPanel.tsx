@@ -3,6 +3,7 @@ import { Match } from '../models/BBallModels';
 import { BBallMatchCard } from './BBallMatchCard';
 import './BBall.css';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { getTotalAveragePlayerStats } from '../services/BBallDataRetriever';
 
 interface Props {
   seasonMatches: Match[]
@@ -10,6 +11,14 @@ interface Props {
 
 export function BBallMatchPanel({ seasonMatches }: Props) {
   seasonMatches.reverse(); // mutating state
+  console.log(getTotalAveragePlayerStats(seasonMatches, "Roy Aranda"));
+  console.log(getTotalAveragePlayerStats(seasonMatches, "Alvin Soh"));
+  console.log(getTotalAveragePlayerStats(seasonMatches, "Jeremy Soh"));
+  console.log(getTotalAveragePlayerStats(seasonMatches, "Hussein Debel"));
+  console.log(getTotalAveragePlayerStats(seasonMatches, "Usman Haidar"));
+  console.log(getTotalAveragePlayerStats(seasonMatches, "Khatami Chau"));
+  console.log(getTotalAveragePlayerStats(seasonMatches, "Tavonga Nyoka"));
+
   return (
     <div className="match-panel">
       {

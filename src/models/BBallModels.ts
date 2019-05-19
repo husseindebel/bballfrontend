@@ -50,11 +50,27 @@ export interface PlayerStats {
     foulsDrawn: number;
 }
 
+export interface AveragePlayerStats {
+    player: Player;
+    pointsPerGame: number;
+    assistsPerGame: number;
+    stealsPerGame: number;
+    blocksPerGame: number;
+    reboundsPerGame: number;
+    fieldGoalsAttempted: number;
+    fieldGoalsMade: number;
+    threePointsAttempted: number;
+    threePointsMade: number;
+    fieldGoalPercentage: number;
+    threePointPercentage: number;
+    freePointPercentage: number;
+}
+
 export interface IncompleteMatch {
     matchStatus: MatchState.Incomplete;
 }
 
-type MatchStats = CompleteMatchStats | IncompleteMatch;
+export type MatchStats = CompleteMatchStats | IncompleteMatch;
 
 export interface BBallSeason {
     matches: Match[]

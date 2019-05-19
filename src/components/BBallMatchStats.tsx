@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardContent, Typography, Theme, WithStyles, createStyles, withStyles, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import { Match, CompleteMatchStats } from '../models/BBallModels';
+import { getTotalAveragePlayerStats } from '../services/BBallDataRetriever';
 
 const styles = (theme: Theme) => createStyles({
 
@@ -29,7 +30,6 @@ interface Props extends WithStyles<typeof styles> {
 */
 
 export const BBallMatchStats = withStyles(styles)(({ matchStats, classes }: Props) => {
-  console.log(matchStats);
   return (
     <CardContent>
       <Table>
