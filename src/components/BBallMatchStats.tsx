@@ -59,7 +59,7 @@ export const BBallMatchStats =(({ matchStats }: Props) => {
             return (
               <tr onClick={() => navigate(`/bballfrontend/player/${n.player.number.toString()}`)} key={n.player.number}>
                 <td>
-                {n.player.name}
+                {n.player.number}. {n.player.name}
                 </td>
                 <td>{n.threePointsMade*3 + (n.fieldGoalsMade - n.threePointsMade)*2 +  n.freeThrowsMade}</td>
                 <td>{n.rebounds}</td>
