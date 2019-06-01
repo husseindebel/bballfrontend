@@ -63,7 +63,9 @@ export interface AveragePlayerStats {
     threePointsMade: number;
     fieldGoalPercentage: number;
     threePointPercentage: number;
-    freePointPercentage: number;
+    freeThrowPercentage: number;
+    freeThrowsMade: number;
+    freeThrowsAttempted: number;
     turnoversPerGame: number;
 }
 

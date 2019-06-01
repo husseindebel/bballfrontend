@@ -20,10 +20,10 @@ export function getMatch(matchId: string | undefined){
     return filteredMatch.length === 0 ? undefined : filteredMatch[0];
 }
 
-const getTotalPlayerStats = (matchData: MatchStats[], playerName: string): PlayerStats => {
+const getTotalPlayerStats = (matchData: MatchStats[], playerNumber: number): PlayerStats => {
     const playerMatchData = matchData.flatMap((match) => {
         if (match.matchStatus === MatchState.Incomplete) return [];
-        var playerMatches = match.homeTeamStats.filter((playerStats => playerStats.player.name === playerName));
+        var playerMatches = match.homeTeamStats.filter((playerStats => playerStats.player.number === playerNumber));
         return playerMatches;
     });
     const playerData = playerMatchData.reduce((prevStats, currentStats) => {
@@ -48,11 +48,12 @@ const getTotalPlayerStats = (matchData: MatchStats[], playerName: string): Playe
     return {...playerData, totalPoints: playerData.threePointsMade*3 + (playerData.fieldGoalsMade - playerData.threePointsMade)*2 +  playerData.freeThrowsMade};
 }
 
-export const getTotalAveragePlayerStats = (playerName: string): AveragePlayerStats => {
+export const getTotalAveragePlayerStats = (playerId: string): AveragePlayerStats => {
     const matchData = parseBBallData(bballData);
+    const playerNumber = parseInt(playerId);
     var completeMatches: MatchStats[] = matchData.map(match => match.matchStats).filter(match => match.matchStatus === MatchState.Complete);
 
-    var totalStats: PlayerStats = getTotalPlayerStats(completeMatches, playerName);
+    var totalStats: PlayerStats = getTotalPlayerStats(completeMatches, playerNumber);
     return {
         player: totalStats.player,
         pointsPerGame: totalStats.totalPoints / matchData.length,
@@ -62,11 +63,13 @@ export const getTotalAveragePlayerStats = (playerName: string): AveragePlayerSta
         stealsPerGame: totalStats.steals / matchData.length,
         fieldGoalPercentage: totalStats.fieldGoalsMade / totalStats.fieldGoalsAttempted,
         threePointPercentage: totalStats.threePointsMade / totalStats.threePointsAttempted,
-        freePointPercentage: totalStats.freeThrowsMade / totalStats.freeThrowsAttempted,
+        freeThrowPercentage: totalStats.freeThrowsMade / totalStats.freeThrowsAttempted,
         fieldGoalsAttempted: totalStats.fieldGoalsAttempted,
         fieldGoalsMade: totalStats.fieldGoalsMade,
         threePointsAttempted: totalStats.threePointsAttempted,
         threePointsMade: totalStats.threePointsMade,
+        freeThrowsMade: totalStats.freeThrowsMade,
+        freeThrowsAttempted: totalStats.freeThrowsAttempted,
         turnoversPerGame: totalStats.turnovers / matchData.length
     }
 }

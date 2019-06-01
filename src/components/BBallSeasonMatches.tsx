@@ -9,12 +9,12 @@ interface Props {
 }
 
 export function BBallSeasonMatches({ seasonMatches }: Props) {
-  seasonMatches.reverse(); // mutating state
+  const reversedMatches = seasonMatches.slice().reverse(); // mutating state
   return (
       <div className="match-season">
     <Container>
         {
-          seasonMatches.map((match) => {
+          reversedMatches.map((match) => {
             return (
               <Row key={match.matchId}>
                 <Col></Col>
