@@ -1,7 +1,15 @@
+.match-card {
+    margin: 16px;
+}
+
+.match-season {
+    margin-top: 100px;
+}
+
 .match-panel {
-    /* border-width: 50px; */
-    margin: 50px;
-    width: 50%;
-    left: 20%;
-    position: absolute;
+    margin: 25px;
+}
+
+.match-table {
+    margin-top: 24px;
 }

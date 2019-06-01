@@ -1,16 +1,12 @@
 import React from 'react';
-import { CardContent, Typography, Theme, WithStyles, createStyles, withStyles, Table, TableHead, TableRow, TableCell, TableBody, Button } from '@material-ui/core';
 import { Match, CompleteMatchStats, Player } from '../models/BBallModels';
 import { getTotalAveragePlayerStats } from '../services/BBallDataRetriever';
 import { ModalState } from './BBallMatchCard';
+import { Table, Button } from 'react-bootstrap';
 
-const styles = (theme: Theme) => createStyles({
-
-});
-
-interface Props extends WithStyles<typeof styles> {
+interface Props {
   matchStats: CompleteMatchStats;
-  handleModalAction: (modalState: ModalState, player: Player) => void;
+  // handleModalAction: (modalState: ModalState, player: Player) => void;
 }
 
 /*
@@ -31,67 +27,66 @@ interface Props extends WithStyles<typeof styles> {
   TOV
 */
 
-export const BBallMatchStats = withStyles(styles)(({ matchStats, handleModalAction, classes }: Props) => {
+export const BBallMatchStats =(({ matchStats }: Props) => {
   
   return (
-    <CardContent>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Player Name</TableCell>
-            <TableCell padding='checkbox' align='center'>PTS</TableCell>
-            <TableCell padding='checkbox' align='center'>REB</TableCell>
-            <TableCell padding='checkbox' align='center'>AST</TableCell>
-            <TableCell padding='checkbox' align='center'>STL</TableCell>
-            <TableCell padding='checkbox' align='center'>BLK</TableCell>
-            <TableCell padding='checkbox' align='center'>FGM</TableCell>
-            <TableCell padding='checkbox' align='center'>FGA</TableCell>
-            <TableCell padding='checkbox' align='center'>FG%</TableCell>
-            <TableCell padding='checkbox' align='center'>3PM</TableCell>
-            <TableCell padding='checkbox' align='center'>3PA</TableCell>
-            <TableCell padding='checkbox' align='center'>3P%</TableCell>
-            <TableCell padding='checkbox' align='center'>FTM</TableCell>
-            <TableCell padding='checkbox' align='center'>FTA</TableCell>
-            <TableCell padding='checkbox' align='center'>FT%</TableCell>
-            <TableCell padding='checkbox' align='center'>TOV</TableCell>
-            <TableCell padding='checkbox' align='center'>PF</TableCell>
-
-          </TableRow>
-        </TableHead>
-        <TableBody>
+    <div className="match-table">
+      <Table responsive striped bordered hover>
+        <thead>
+          <tr>
+            <th>Player Name</th>
+            <th>PTS</th>
+            <th>REB</th>
+            <th>AST</th>
+            <th>STL</th>
+            <th>BLK</th>
+            <th>FGM</th>
+            <th>FGA</th>
+            <th>FG%</th>
+            <th>3PM</th>
+            <th>3PA</th>
+            <th>3P%</th>
+            <th>FTM</th>
+            <th>FTA</th>
+            <th>FT%</th>
+            <th>TOV</th>
+            <th>PF</th>
+          </tr>
+        </thead>
+        <tbody>
           {matchStats.homeTeamStats.map(n => {
             return (
-              <TableRow key={n.player.number}>
-                <TableCell padding='checkbox' component="th" scope="row">
-                <Button size="small" onClick={() => handleModalAction(ModalState.Open, n.player)}> {n.player.number}  {n.player.name}</Button>
-                </TableCell>
-                <TableCell padding='checkbox' align='center'>{n.threePointsMade*3 + (n.fieldGoalsMade - n.threePointsMade)*2 +  n.freeThrowsMade}</TableCell>
-                <TableCell padding='checkbox' align='center'>{n.rebounds}</TableCell>
-                <TableCell padding='checkbox' align='center'>{n.assists}</TableCell>
-                <TableCell padding='checkbox' align='center'>{n.steals}</TableCell>
-                <TableCell padding='checkbox' align='center'>{n.blocks}</TableCell>
-                <TableCell padding='checkbox' align='center'>{n.fieldGoalsMade}</TableCell>
-                <TableCell padding='checkbox' align='center'>{n.fieldGoalsAttempted}</TableCell>
-                <TableCell padding='checkbox' align='center'>{
+              <tr onClick={() => console.log(n.player.name)} key={n.player.number}>
+                <td>
+                {n.player.name}
+                </td>
+                <td>{n.threePointsMade*3 + (n.fieldGoalsMade - n.threePointsMade)*2 +  n.freeThrowsMade}</td>
+                <td>{n.rebounds}</td>
+                <td>{n.assists}</td>
+                <td>{n.steals}</td>
+                <td>{n.blocks}</td>
+                <td>{n.fieldGoalsMade}</td>
+                <td>{n.fieldGoalsAttempted}</td>
+                <td>{
                   isNaN(n.fieldGoalsMade/n.fieldGoalsAttempted) ? 0 : 
-                  ((n.fieldGoalsMade/n.fieldGoalsAttempted)*100).toFixed(2)}</TableCell>
-                <TableCell padding='checkbox' align='center'>{n.threePointsMade}</TableCell>
-                <TableCell padding='checkbox' align='center'>{n.threePointsAttempted}</TableCell>
-                <TableCell padding='checkbox' align='center'>{
+                  ((n.fieldGoalsMade/n.fieldGoalsAttempted)*100).toFixed(2)}</td>
+                <td>{n.threePointsMade}</td>
+                <td>{n.threePointsAttempted}</td>
+                <td>{
                   isNaN(n.threePointsMade/n.threePointsAttempted) ? 0 : 
-                  ((n.threePointsMade/n.threePointsAttempted)*100).toFixed(2)}</TableCell>
-                <TableCell padding='checkbox' align='center'>{n.freeThrowsMade}</TableCell>
-                <TableCell padding='checkbox' align='center'>{n.freeThrowsAttempted}</TableCell>
-                <TableCell padding='checkbox' align='center'>{
+                  ((n.threePointsMade/n.threePointsAttempted)*100).toFixed(2)}</td>
+                <td>{n.freeThrowsMade}</td>
+                <td>{n.freeThrowsAttempted}</td>
+                <td>{
                   isNaN(n.freeThrowsMade/n.freeThrowsAttempted) ? 0 : 
-                  ((n.freeThrowsMade/n.freeThrowsAttempted)*100).toFixed(2)}</TableCell>
-                <TableCell padding='checkbox' align='center'>{n.turnovers}</TableCell>
-                <TableCell padding='checkbox' align='center'>{n.foulsGiven}</TableCell>
-              </TableRow>
+                  ((n.freeThrowsMade/n.freeThrowsAttempted)*100).toFixed(2)}</td>
+                <td>{n.turnovers}</td>
+                <td>{n.foulsGiven}</td>
+              </tr>
             );
           })}
-        </TableBody>
+        </tbody>
       </Table>
-    </CardContent>
-  )
+      </div>
+    )
 });

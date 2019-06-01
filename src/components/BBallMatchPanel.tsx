@@ -1,52 +1,85 @@
 import React from 'react';
-import { Match } from '../models/BBallModels';
-import { BBallMatchCard } from './BBallMatchCard';
 import './BBall.css';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
-import { getTotalAveragePlayerStats } from '../services/BBallDataRetriever';
+import { Match } from '@reach/router';
+import { MatchStats, MatchState } from '../models/BBallModels';
+import { getMatch } from '../services/BBallDataRetriever';
+import { Jumbotron, Button, Container, Col } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
+import { BBallMatchStats } from './BBallMatchStats';
 
 interface Props {
-  seasonMatches: Match[]
+    matchId: string | undefined;
 }
 
-export function BBallMatchPanel({ seasonMatches }: Props) {
-  seasonMatches.reverse(); // mutating state
-  console.log(getTotalAveragePlayerStats("Roy Aranda"));
-  console.log(getTotalAveragePlayerStats("Alvin Soh"));
-  console.log(getTotalAveragePlayerStats("Jeremy Soh"));
-  console.log(getTotalAveragePlayerStats("Hussein Debel"));
-  console.log(getTotalAveragePlayerStats("Usman Haidar"));
-  console.log(getTotalAveragePlayerStats("Khatami Chau"));
-  console.log(getTotalAveragePlayerStats("Tavonga Nyoka"));
+interface MatchPanelTab {
+    key: string;
+    name: string;
+    label: string;
+}
 
-  return (
-    <div className="match-panel">
-      {
-        seasonMatches.map((match) => {
-          const theme = createMuiTheme({
-            palette: {
-              primary: {
-                // light: will be calculated from palette.primary.main,
-                main: match.homeTeam.colour,
-                // dark: will be calculated from palette.primary.main,
-                // contrastText: will be calculated to contrast with palette.primary.main
-              },
-              secondary: {
-                light: '#0066ff',
-                main: match.awayTeam.colour,
-                // dark: will be calculated from palette.secondary.main,
-                contrastText: '#ffcc00',
-              },
-              // error: will use the default color
-            },
-          });
-          return (
-            <MuiThemeProvider key={match.matchId}  theme={theme}>
-            <BBallMatchCard matchData={match} />
-            </MuiThemeProvider>
-          )
-        })
-      }
-    </div>
-  )
+interface State {
+    activeTab: MatchPanelTab;
+}
+
+export function BBallMatchPanel({ matchId }: Props) {
+    const matchData = getMatch(matchId);
+
+    const matchPanelTabs: MatchPanelTab[] = [
+        {
+            key: "1",
+            name: "match-stats",
+            label: "Match Stats"
+        },
+        {
+            key: "2",
+            name: "player-stats",
+            label: "Player Stats"
+        },
+        {
+            key: "3",
+            name: "video",
+            label: "Video"
+        }
+    ];
+
+    const [state, setState] = React.useState({activeTab: matchPanelTabs[1]});
+
+
+    return (
+        <div className="match-panel">
+         {matchData &&
+         <div>
+            <Jumbotron className="text-center">
+                <span>{matchData.homeTeam.name}</span> {matchData.matchStats.matchStatus === MatchState.Complete &&
+                    <span>{matchData.matchStats.homeTeamScore} - {matchData.matchStats.awayTeamScore}</span>
+                } {matchData.matchStats.matchStatus === MatchState.Incomplete &&
+                    <span>VS</span>
+                } <span>{matchData.awayTeam.name}</span>
+            </Jumbotron>                
+            <Nav variant="pills" activeKey={state.activeTab.key} onSelect={(key: string) => setState({activeTab: matchPanelTabs.filter(x => x.key === key)[0]})}>
+                {matchPanelTabs.map(panel => (
+                    <Nav.Item key={panel.key}>
+                        <Nav.Link eventKey={panel.key}>
+                            {panel.label}
+                        </Nav.Link>
+                    </Nav.Item>
+                ))}
+            </Nav>
+            <Container>
+            <Col></Col>
+            <Col>
+            {state.activeTab.name === "match-stats" &&
+                <span>Match Stats</span>
+            }            
+            {state.activeTab.name === "player-stats" &&
+                matchData.matchStats.matchStatus === MatchState.Complete &&
+                <BBallMatchStats matchStats={matchData.matchStats} />
+            }
+            </Col>
+            <Col></Col>
+            </Container>
+        </div>
+         }   
+        </div>
+    );
 }

@@ -10,6 +10,16 @@ export function parseBBallData(data: any): Match[] {
     return data.default;
 }
 
+export function getMatch(matchId: string | undefined){
+    if (!matchId){
+        return undefined;
+    }
+    const matchIdNumber = parseInt(matchId);
+    const matchData = parseBBallData(bballData);
+    const filteredMatch = matchData.filter(match => match.matchId == matchIdNumber);
+    return filteredMatch.length === 0 ? undefined : filteredMatch[0];
+}
+
 const getTotalPlayerStats = (matchData: MatchStats[], playerName: string): PlayerStats => {
     const playerMatchData = matchData.flatMap((match) => {
         if (match.matchStatus === MatchState.Incomplete) return [];
