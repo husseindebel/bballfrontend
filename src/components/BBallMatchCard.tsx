@@ -28,7 +28,7 @@ export const BBallMatchCard = (({ matchData }: Props) => {
   const matchStats = matchData.matchStats;
 
   return (
-    <Card onClick={() => navigate(`/bballfrontend/match/${matchData.matchId}`)} className="match-card">
+    <Card onClick={() => navigate(`/match/${matchData.matchId}`)} className="match-card">
       <Card.Body className="text-center">
       <Card.Text>Match: {matchData.matchNumber} {matchData.date}</Card.Text>
         <Card.Text>

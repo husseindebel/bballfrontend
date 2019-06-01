@@ -29,7 +29,7 @@ const PlayerStatsRoute = ({path, playerId}: RouteProps) => {
 }
 
 const App = () => (
-  <Router basepath="bballfrontend">
+  <Router>
     <BBallSeason path="/" />
     <BBallMatchPanelRoute path="/match/:matchId" />
     <PlayerStatsRoute path="/player/:playerId" />

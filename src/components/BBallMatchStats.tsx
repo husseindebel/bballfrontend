@@ -57,7 +57,7 @@ export const BBallMatchStats =(({ matchStats }: Props) => {
         <tbody>
           {matchStats.homeTeamStats.map(n => {
             return (
-              <tr onClick={() => navigate(`/bballfrontend/player/${n.player.number.toString()}`)} key={n.player.number}>
+              <tr onClick={() => navigate(`/player/${n.player.number.toString()}`)} key={n.player.number}>
                 <td>
                 {n.player.name}
                 </td>
