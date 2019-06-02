@@ -101,11 +101,11 @@ export const PlayerStatsSection = (({ playerId }: Props) => {
       <h1>#{playerStats.number}. {playerStats.name}</h1>
     </Jumbotron>
     <Container>
-      {rows && rows.map(rows => (
-        <div className="player-score">
+      {rows && rows.map((rows, index) => (
+        <div key={index} className="player-score">
         <Row>
           {rows && rows.map(stat => (
-            <Col>
+            <Col key={stat.label}>
               <h2>{stat.stat}</h2>
               {stat.volume && <h5>({stat.volume.made}/{stat.volume.attempted})</h5>}
               {stat.label}

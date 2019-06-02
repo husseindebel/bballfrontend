@@ -354,7 +354,7 @@
                 "freeThrowsMade":1,
                 "foulsDrawn":1,
                 "foulsGiven":0,
-                "rebounds":0,
+                "rebounds":2,
                 "steals":3,
                 "assists":3,
                 "turnovers":1,
@@ -1265,6 +1265,7 @@
                         "number":2,
                         "name":"Roy Aranda"
                     },
+                    "played": false,
                     "fieldGoalsAttempted":0,
                     "fieldGoalsMade":0,
                     "threePointsAttempted":0,
