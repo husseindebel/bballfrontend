@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/bballfrontend/static/js/runtime~main.ddb9dd5c.js"
   },
   {
-    "revision": "b5e8316c8ecee5b43115",
-    "url": "/bballfrontend/static/js/main.811fb2d7.chunk.js"
+    "revision": "dc8366604d0cbcd674ac",
+    "url": "/bballfrontend/static/js/main.c615d272.chunk.js"
   },
   {
     "revision": "502f5584561bbb736ff9",
     "url": "/bballfrontend/static/js/2.12d04e59.chunk.js"
   },
   {
-    "revision": "b5e8316c8ecee5b43115",
-    "url": "/bballfrontend/static/css/main.c9c2caa7.chunk.css"
+    "revision": "dc8366604d0cbcd674ac",
+    "url": "/bballfrontend/static/css/main.c7f2118e.chunk.css"
   },
   {
-    "revision": "3ad937574bdd7ebc930b8cfc9e4785ff",
+    "revision": "d389fb790618e0922d9274298963b644",
     "url": "/bballfrontend/index.html"
   }
 ];
