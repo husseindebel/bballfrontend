@@ -1265,6 +1265,7 @@
                         "number":2,
                         "name":"Roy Aranda"
                     },
+                    "played": false,
                     "fieldGoalsAttempted":0,
                     "fieldGoalsMade":0,
                     "threePointsAttempted":0,

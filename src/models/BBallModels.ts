@@ -33,6 +33,7 @@ export interface CompleteMatchStats {
 }
 
 export interface PlayerStats {
+    matchesPlayed: number;
     player: Player;
     totalPoints: number;
     fieldGoalsAttempted: number;
@@ -48,6 +49,7 @@ export interface PlayerStats {
     turnovers: number;
     foulsGiven: number;
     foulsDrawn: number;
+    played?: boolean;
 }
 
 export interface AveragePlayerStats {
