@@ -6,6 +6,7 @@ import { parseBBallData } from '../services/BBallDataRetriever';
 import { Router } from '@reach/router';
 import { BBallMatchPanel } from './BBallMatchPanel';
 import { PlayerStatsSection } from './PlayerStatsSection';
+import { MatchVideo } from './MatchVideo';
 
 interface RouteProps {
   path: string;
@@ -28,11 +29,16 @@ const PlayerStatsRoute = ({path, playerId}: RouteProps) => {
   return <PlayerStatsSection playerId={playerId} />
 }
 
+const  MatchVideoRoute = ({path, matchId}: RouteProps) => {
+  return <MatchVideo matchId={matchId} />
+}
+
 const App = () => (
   <Router basepath="/bballfrontend">
     <BBallSeason path="/" />
     <BBallMatchPanelRoute path="/match/:matchId" />
     <PlayerStatsRoute path="/player/:playerId" />
+    {/* <MatchVideoRoute path="/video/:matchId" /> */}
   </Router>
 );
 
