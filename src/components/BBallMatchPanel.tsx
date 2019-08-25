@@ -7,6 +7,7 @@ import { Jumbotron, Button, Container, Col } from 'react-bootstrap';
 import { Nav } from 'react-bootstrap';
 import { BBallMatchStats } from './BBallMatchStats';
 import { MatchVideo } from './MatchVideo';
+import { BBallTeamStats } from './BBallTeamStats';
 
 interface Props {
   matchId: string | undefined;
@@ -43,7 +44,7 @@ export function BBallMatchPanel({ matchId }: Props) {
     }
   ];
 
-  const [state, setState] = React.useState({ activeTab: matchPanelTabs[1] });
+  const [state, setState] = React.useState({ activeTab: matchPanelTabs[0] });
 
 
   return (
@@ -70,7 +71,8 @@ export function BBallMatchPanel({ matchId }: Props) {
             <Col></Col>
             <Col>
               {state.activeTab.name === "match-stats" &&
-                <span>Match Stats</span>
+                matchData.matchStats.matchStatus === MatchState.Complete &&
+                <BBallTeamStats matchStats={matchData.matchStats} />
               }
               {state.activeTab.name === "player-stats" &&
                 matchData.matchStats.matchStatus === MatchState.Complete &&

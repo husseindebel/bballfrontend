@@ -38,6 +38,7 @@ export const BBallMatchCard = (({ matchData }: Props) => {
             <span>VS</span>
           } <span>{matchData.awayTeam.name}</span>
         </Card.Text>
+        <Button variant="outline-secondary">More</Button>
       </Card.Body>
     </Card>
   )

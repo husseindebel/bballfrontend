@@ -11,7 +11,8 @@ export interface Team {
 }
 
 export interface Match {
-    matchId: number,
+    matchId: number;
+    seasonId: number;
     homeTeam: Team;
     awayTeam: Team;
     date: string;
@@ -54,6 +55,7 @@ export interface PlayerStats {
 
 export interface AveragePlayerStats {
     player: Player;
+    gamesPlayed: number;
     pointsPerGame: number;
     assistsPerGame: number;
     stealsPerGame: number;

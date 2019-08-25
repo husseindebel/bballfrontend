@@ -3,7 +3,7 @@
 }
 
 .match-season {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .match-panel {
@@ -16,4 +16,10 @@
 
 .player-score {
     padding-bottom: 20px;
+}
+
+.team-stats {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
 }
