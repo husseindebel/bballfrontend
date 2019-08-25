@@ -1,13 +1,13 @@
 {
-  "main.css": "/bballfrontend/static/css/main.b0ef317d.chunk.css",
-  "main.js": "/bballfrontend/static/js/main.0afce5f5.chunk.js",
-  "main.js.map": "/bballfrontend/static/js/main.0afce5f5.chunk.js.map",
-  "runtime~main.js": "/bballfrontend/static/js/runtime~main.ddb9dd5c.js",
-  "runtime~main.js.map": "/bballfrontend/static/js/runtime~main.ddb9dd5c.js.map",
-  "static/js/2.14d9779e.chunk.js": "/bballfrontend/static/js/2.14d9779e.chunk.js",
-  "static/js/2.14d9779e.chunk.js.map": "/bballfrontend/static/js/2.14d9779e.chunk.js.map",
+  "main.css": "/bballfrontend/static/css/main.1df6025e.chunk.css",
+  "main.js": "/bballfrontend/static/js/main.1fb388ca.chunk.js",
+  "main.js.map": "/bballfrontend/static/js/main.1fb388ca.chunk.js.map",
+  "runtime~main.js": "/bballfrontend/static/js/runtime~main.b57d0ab5.js",
+  "runtime~main.js.map": "/bballfrontend/static/js/runtime~main.b57d0ab5.js.map",
+  "static/js/2.b2a84a8b.chunk.js": "/bballfrontend/static/js/2.b2a84a8b.chunk.js",
+  "static/js/2.b2a84a8b.chunk.js.map": "/bballfrontend/static/js/2.b2a84a8b.chunk.js.map",
   "index.html": "/bballfrontend/index.html",
-  "precache-manifest.d88feb30563f315faab4724981d20af1.js": "/bballfrontend/precache-manifest.d88feb30563f315faab4724981d20af1.js",
+  "precache-manifest.6d42441e099eed955b3e33ba184f9286.js": "/bballfrontend/precache-manifest.6d42441e099eed955b3e33ba184f9286.js",
   "service-worker.js": "/bballfrontend/service-worker.js",
-  "static/css/main.b0ef317d.chunk.css.map": "/bballfrontend/static/css/main.b0ef317d.chunk.css.map"
+  "static/css/main.1df6025e.chunk.css.map": "/bballfrontend/static/css/main.1df6025e.chunk.css.map"
 }
